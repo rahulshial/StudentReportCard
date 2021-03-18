@@ -1,4 +1,4 @@
-const { readCourses, readStudents, readMarks, readTests, writeJSON } = require ('./processIO');
+const { readCSV, writeJSON } = require ('./processIO');
 
 const args = process.argv.slice(2);
 const coursesFile = args[0];
@@ -13,10 +13,10 @@ const JSONObject = {
 };
 
 const fetchStudentRecords = async() => {
-  courses = await readCourses(coursesFile);
-  students = await readStudents(studentsFile);
-  tests = await readTests(testsFIle);
-  marks = await readMarks(marksFile);
+  courses = await readCSV(coursesFile);
+  students = await readCSV(studentsFile);
+  tests = await readCSV(testsFIle);
+  marks = await readCSV(marksFile);
 };
 
 const calculateAvgScore = (student) => {
